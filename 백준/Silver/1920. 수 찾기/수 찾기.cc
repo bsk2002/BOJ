@@ -1,36 +1,30 @@
-#include <algorithm>
 #include <iostream>
+#include <set>
 using namespace std;
-int BinarySearch(int num, int A[], int left, int right) {
-  int middle;
-  while (left <= right) {
-    middle = (left + right) / 2;
-    if (num == A[middle])
-      return 1;
-    else if (num > A[middle])
-      left = middle + 1;
-    else
-      right = middle - 1;
-  }
-  return 0;
-}
 
 int main() {
-  int A[100000];
-  int N;
-  cin >> N;
-  for (int i = 0; i < N; i++)
-    cin >> A[i];
-  int B[100000];
-  int M;
-  cin >> M;
-  for (int i = 0; i < M; i++)
-    cin >> B[i];
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	cout.tie(0);
 
-  sort(A, A + N);
+	int n;
+	cin >> n;
+	set<int> set;
+	while (n--) {
+		int x;
+		cin >> x;
+		set.insert(x);
+	}
 
-  for (int i = 0; i < M; i++) {
-    cout << BinarySearch(B[i], A, 0, N-1);
-    cout << "\n";
-  }
+	int m;
+	cin >> m;
+
+	while (m--) {
+		int x;
+		cin >> x;
+		if (set.count(x) != 0)
+			cout << "1\n";
+		else
+			cout << "0\n";
+	}
 }
