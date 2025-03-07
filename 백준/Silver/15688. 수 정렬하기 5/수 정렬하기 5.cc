@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int arr[1000001];
+int arr[2000001];
 int n;
 
 int main() {
@@ -11,11 +11,15 @@ int main() {
 
     cin >> n;
     for (int i = 0; i < n; i++) {
-        cin >> arr[i];
+        int a;
+        cin >> a;
+        arr[a + 1000000]++;
     }
-    sort(arr, arr + n);
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << '\n';
+
+    for (int i = 0; i <= 2000000; i++) {
+        while (arr[i]--) {
+            cout << i - 1000000 << '\n';
+        }
     }
 
     return 0;
